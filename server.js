@@ -13,6 +13,11 @@ app.get('/reactube', function(req, res) {
 	res.sendFile(path.join(__dirname, '/../reactube', 'build', 'index.html'));
 });
 
+app.use(express.static(path.join(__dirname, '/../weather', 'build')));
+app.get('/weather', function(req, res) {
+	res.sendFile(path.join(__dirname, '/../weather', 'build', 'index.html'));
+});
+
 app.use('/mailerdemon', (req, res) => {
         res.redirect('http://www.kouroscodes.com:9000');
 });
