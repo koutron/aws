@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fcc = require('../fcc/server.js');
+const email = require('./email.js');
 const app = express();
 
 app.use(express.static(path.join(__dirname, '/../portfolio')));
@@ -21,6 +22,8 @@ app.get('/weather', function(req, res) {
 app.use('/mailerdemon', (req, res) => {
         res.redirect('http://www.kouroscodes.com:9000');
 });
+
+app.use('/message', email);
 
 app.use('/fcc', fcc);
 
