@@ -23,7 +23,7 @@ app.use('/mailerdemon', (req, res) => {
         res.redirect('http://www.kouroscodes.com:9000');
 });
 
-app.use('/message', email);
+app.get('/message', email);
 
 app.use('/fcc', fcc);
 

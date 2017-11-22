@@ -19,7 +19,7 @@ var mailOptions = {
   text: 'That was easy!'
 };
 
-router.get('/', (req, res) => {
+router.get('/message', (req, res) => {
   console.log(req);
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
