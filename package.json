@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/koutron/aws#readme",
   "dependencies": {
+    "express": "^4.16.2",
+    "google-auth-library": "^0.12.0",
+    "googleapis": "^23.0.0",
     "http-proxy": "^1.16.2",
+    "nodemailer": "^4.4.0",
     "nodemon": "^1.12.1"
   }
 }

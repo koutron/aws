@@ -23,8 +23,9 @@ app.use('/mailerdemon', (req, res) => {
         res.redirect('http://www.kouroscodes.com:9000');
 });
 
-app.get('/message', email);
+app.use('/message', email);
 
 app.use('/fcc', fcc);
 
-app.listen(8080);
+app.listen(3000);
+//app.listen(8080);
