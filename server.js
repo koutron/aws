@@ -23,6 +23,11 @@ app.use('/mailerdemon', (req, res) => {
         res.redirect('http://www.kouroscodes.com:9000');
 });
 
+app.use(express.static(path.join(__dirname, '/../portfolio')));
+app.get('/thankyou', function(req, res) {
+	res.sendFile(path.join(__dirname, '/../portfolio', 'thankyou.html'));
+});
+
 app.use('/message', email);
 
 app.use('/fcc', fcc);

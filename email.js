@@ -2,6 +2,7 @@ var nodemailer = require('nodemailer');
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
+var keys = require('./keys.js');
 
 // parse application/x-www-form-urlencoded
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -12,8 +13,8 @@ router.use(bodyParser.json());
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'kamousavitest@gmail.com',
-    pass: 'poopoo12'
+    user: keys.email,
+    pass: keys.password
   }
 });
 
@@ -24,7 +25,7 @@ router.post('/', (req, res) => {
   var mailOptions = {
     from: 'kamousavitest@gmail.com',
     to: 'kamousavi@gmail.com',
-    subject: 'Sending Email using Node.js',
+    subject: 'CONTACT EMAIL',
     text: `Name: ${req.body.name} \n
           Email: ${req.body.email} \n
           Phone: ${req.body.phone} \n
@@ -38,6 +39,7 @@ transporter.sendMail(mailOptions, function(error, info){
     console.log('Email sent: ' + info.response);
   }
 });
+res.redirect('http://kouroscodes.com/thankyou');
 });
 
 module.exports = router;
