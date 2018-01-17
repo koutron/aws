@@ -14,9 +14,9 @@ app.get('/reactube', function(req, res) {
 	res.sendFile(path.join(__dirname, '/../reactube', 'build', 'index.html'));
 });
 
-app.use(express.static(path.join(__dirname, '/../icxtest', 'build')));
-app.get('/weather', function(req, res) {
-	res.sendFile(path.join(__dirname, '/../icxtest', 'build', 'index.html'));
+app.use(express.static(path.join(__dirname, '/../icxtest', 'client', 'build')));
+app.get('/icxtest', function(req, res) {
+	res.sendFile(path.join(__dirname, '/../icxtest', 'client', 'build', 'index.html'));
 });
 
 app.use(express.static(path.join(__dirname, '/../weather', 'build')));
