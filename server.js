@@ -14,6 +14,11 @@ app.get('/reactube', function(req, res) {
 	res.sendFile(path.join(__dirname, '/../reactube', 'build', 'index.html'));
 });
 
+app.use(express.static(path.join(__dirname, '/../icxtest', 'build')));
+app.get('/weather', function(req, res) {
+	res.sendFile(path.join(__dirname, '/../icxtest', 'build', 'index.html'));
+});
+
 app.use(express.static(path.join(__dirname, '/../weather', 'build')));
 app.get('/weather', function(req, res) {
 	res.sendFile(path.join(__dirname, '/../weather', 'build', 'index.html'));
@@ -23,9 +28,7 @@ app.use('/mailerdemon', (req, res) => {
         res.redirect('http://www.kouroscodes.com:9000');
 });
 
-app.use('/icxtest', (req, res) => {
-        res.redirect('http://www.kouroscodes.com:7000');
-});
+
 
 app.use(express.static(path.join(__dirname, '/../portfolio')));
 app.get('/thankyou', function(req, res) {
