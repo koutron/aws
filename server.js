@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const fcc = require('../fcc/server.js');
 const email = require('./email.js');
+const icxtest = require('../icxtest/server.js');
 const app = express();
 
 app.use(express.static(path.join(__dirname, '/../portfolio')));
@@ -32,5 +33,6 @@ app.use('/message', email);
 
 app.use('/fcc', fcc);
 
-app.listen(3000);
-//app.listen(8080);
+app.use('/icxtest', icxtest);
+
+app.listen(80);
