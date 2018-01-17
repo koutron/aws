@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const fcc = require('../fcc/server.js');
 const email = require('./email.js');
-const icxtest = require('../icxtest/server.js');
 const app = express();
 
 app.use(express.static(path.join(__dirname, '/../portfolio')));
@@ -24,6 +23,10 @@ app.use('/mailerdemon', (req, res) => {
         res.redirect('http://www.kouroscodes.com:9000');
 });
 
+app.use('/icxtest', (req, res) => {
+        res.redirect('http://www.kouroscodes.com:7000');
+});
+
 app.use(express.static(path.join(__dirname, '/../portfolio')));
 app.get('/thankyou', function(req, res) {
 	res.sendFile(path.join(__dirname, '/../portfolio', 'thankyou.html'));
@@ -32,7 +35,5 @@ app.get('/thankyou', function(req, res) {
 app.use('/message', email);
 
 app.use('/fcc', fcc);
-
-app.use('/icxtest', icxtest);
 
 app.listen(80);
